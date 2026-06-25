@@ -1,0 +1,57 @@
+/* ============================================
+   EXPENSE ITEM — Legacy Card Style (unused
+   by DataTables but kept for compatibility)
+   ============================================ */
+.expense-card {
+  background: var(--color-bg-card);
+  margin-bottom: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
+}
+
+.expense-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-glow);
+  transform: translateY(-1px);
+}
+
+.expense-info h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.expense-info p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.delete-btn {
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-text-inverse);
+  background: var(--color-danger);
+}
+
+.delete-btn:hover {
+  background: var(--color-danger-dark);
+  transform: translateY(-1px);
+}
+
+.delete-btn:active {
+  transform: scale(0.96);
+}

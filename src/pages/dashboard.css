@@ -1,0 +1,142 @@
+/* ============================================
+   DASHBOARD — Stats & Charts
+   ============================================ */
+.dashboard-container {
+  min-height: 100vh;
+  padding: var(--space-10) var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-10);
+  letter-spacing: -0.02em;
+}
+
+/* ---- Stats Grid ---- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ---- Stat Card ---- */
+.stat-card {
+  background: var(--color-bg-card);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative corner accent */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.06), transparent);
+  border-radius: 0 var(--radius-lg) 0 80px;
+  pointer-events: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.15);
+}
+
+.stat-card h3 {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card p {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Highlight Card ---- */
+.highlight-card {
+  border-left: 4px solid var(--color-primary);
+}
+
+.highlight-card::before {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), transparent);
+}
+
+/* ---- Highest Card ---- */
+.highest-card p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.highest-card span {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---- Chart Container ---- */
+.chart-container {
+  margin-top: var(--space-10);
+  background: var(--color-bg-card);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.chart-container h2 {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .dashboard-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .stat-card {
+    padding: var(--space-5);
+  }
+
+  .stat-card p {
+    font-size: var(--font-size-2xl);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,253 @@
+/* ============================================
+   EXPENSE LIST — DataTable Styling
+   ============================================ */
+
+/* ---- Category Filter ---- */
+.filter-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: var(--space-6);
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.filter-select {
+  padding: var(--space-2) var(--space-5) var(--space-2) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  cursor: pointer;
+  min-width: 160px;
+  transition: all var(--transition-base);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-xs);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+.filter-select:hover {
+  border-color: var(--color-text-muted);
+}
+
+/* ---- Action Buttons ---- */
+.action-btn {
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-text-inverse);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.action-btn.edit {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  margin-right: var(--space-2);
+  box-shadow: 0 1px 4px rgba(79, 70, 229, 0.3);
+}
+
+.action-btn.edit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(79, 70, 229, 0.4);
+}
+
+.action-btn.delete {
+  background: linear-gradient(135deg, var(--color-danger), var(--color-danger-dark));
+  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.3);
+}
+
+.action-btn.delete:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.4);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   DataTables Custom Theme Overrides
+   ============================================ */
+
+/* Base Table */
+table.dataTable {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  border: 1px solid var(--color-border) !important;
+  font-family: var(--font-family) !important;
+}
+
+/* Header */
+table.dataTable thead th,
+table.dataTable thead td {
+  border-bottom: 2px solid var(--color-border) !important;
+  color: var(--color-text-secondary) !important;
+  padding: var(--space-4) var(--space-5) !important;
+  font-weight: 600 !important;
+  font-size: var(--font-size-xs) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  background: var(--color-bg-input) !important;
+}
+
+/* Body Cells */
+table.dataTable tbody th,
+table.dataTable tbody td {
+  padding: var(--space-3) var(--space-5) !important;
+  color: var(--color-text-primary) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  vertical-align: middle !important;
+  font-size: var(--font-size-sm) !important;
+}
+
+/* Remove default DataTables sorting backgrounds */
+table.dataTable.display tbody tr.odd > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_1,
+table.dataTable.display tbody tr.even > .sorting_1 {
+  background-color: transparent !important;
+}
+
+/* Row hover */
+table.dataTable.display tbody tr:hover > .sorting_1,
+table.dataTable.order-column.hover tbody tr:hover > .sorting_1,
+table.dataTable.display tbody tr:hover {
+  background-color: rgba(79, 70, 229, 0.03) !important;
+}
+
+/* ---- DataTables Controls ---- */
+.dataTables_wrapper {
+  font-family: var(--font-family) !important;
+}
+
+/* Search Input */
+.dataTables_wrapper .dataTables_filter input {
+  border: 1.5px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: var(--space-2) var(--space-4) !important;
+  margin-left: var(--space-2) !important;
+  outline: none !important;
+  transition: all var(--transition-base) !important;
+  background: var(--color-bg-card) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-sm) !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+  border-color: var(--color-border-focus) !important;
+  box-shadow: 0 0 0 3px var(--color-primary-glow) !important;
+}
+
+/* Length Select */
+.dataTables_wrapper .dataTables_length select {
+  border: 1.5px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: var(--space-1) var(--space-3) !important;
+  outline: none !important;
+  background: var(--color-bg-card) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size-sm) !important;
+}
+
+/* Info text */
+.dataTables_wrapper .dataTables_info {
+  color: var(--color-text-muted) !important;
+  font-size: var(--font-size-xs) !important;
+  padding-top: var(--space-4) !important;
+}
+
+/* Label text */
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_length label {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--font-size-sm) !important;
+  font-weight: 500 !important;
+}
+
+/* ---- Pagination ---- */
+.dataTables_wrapper .dataTables_paginate {
+  padding-top: var(--space-4) !important;
+  background: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate span {
+  background: transparent !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+  background: transparent !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+  background: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_paginate .paginate_button {
+  border-radius: var(--radius-sm) !important;
+  margin-left: var(--space-1) !important;
+  font-size: var(--font-size-sm) !important;
+  font-family: var(--font-family) !important;
+  border: 1px solid var(--color-border) !important;
+  background: #ffffff !important;
+  color: #f3f6fb !important;
+  transition: all var(--transition-fast) !important;
+  padding: var(--space-1) var(--space-3) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_paginate .paginate_button:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #e1e2e5 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button.current:hover {
+  background: linear-gradient(135deg, #4f46e5, #3730a3) !important;
+  color: #ffffff !important;
+  border: 1px solid #4f46e5 !important;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3) !important;
+  font-weight: 600 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_paginate .paginate_button.disabled {
+  background: #f8fafc !important;
+  color: #cbd5e1 !important;
+  border-color: #e2e8f0 !important;
+  opacity: 1 !important;
+  cursor: default !important;
+}
