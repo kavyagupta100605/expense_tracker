@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Expense } from "../types/Expense";
 
 const api_url = "http://localhost:5000/expenses";
 export const getExpenses = async (token) => {
@@ -8,7 +9,7 @@ export const getExpenses = async (token) => {
     });
     return response.data;
 };
-export const createExpense = async ({expense,token}) => {
+export const createExpense = async ({expense, token}) => {
     console.log(expense,token);
     const response = await axios.post(api_url,expense,{
         headers: {Authorization: `Bearer ${token}`}
@@ -21,7 +22,7 @@ export const deleteExpense = async ({id,token}) => {
     });
     return response.data;
 };
-export const updateExpense = async ({id,expense,token}) => {
+export const updateExpense = async ({id,expense:Expense,token}) => {
     const response = await axios.put(`${api_url}/${id}`,expense,{
         headers: {Authorization: `Bearer ${token}`}
     });

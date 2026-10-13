@@ -5,9 +5,9 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
   const {addExpense,editid,updateExpense} = useContext(ExpenseContext);  
-  const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
-  const categoryRef = useRef(null);
+  const [category, setCategory] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
+  const categoryRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if(editid){
@@ -16,7 +16,7 @@ const ExpenseForm = () => {
     }
   },[editid]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(!editid){
 
@@ -44,7 +44,7 @@ const ExpenseForm = () => {
     setCategory("");
     setAmount("");
 
-    categoryRef.current.focus();
+    categoryRef.current?.focus();
   };
 
   return (
@@ -57,7 +57,7 @@ const ExpenseForm = () => {
         type="text"
         placeholder="Category"
         value={category}
-        onChange={(e) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setCategory(e.target.value)
         }
       />
@@ -66,14 +66,14 @@ const ExpenseForm = () => {
         type="number"
         placeholder="Amount"
         value={amount}
-        onChange={(e) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setAmount(e.target.value)
         }
       />
 
       <button
         className="add-btn"
-        type="Submit"
+        type="submit"
       >
         {editid ? "Update Expense" : "Add Expense"}
       </button>

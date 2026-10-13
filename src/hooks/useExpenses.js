@@ -64,7 +64,7 @@ const useExpenses = () => {
   });
   const updateExpense = (updatedexpense) =>
   {
-    console.log(updatedexpense);
+    // console.log(updatedexpense);
     updateMutation.mutate({
       id:updatedexpense._id,
       expense:updatedexpense,

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const register = async (req,res) =>{
     try{
-        console.log(req.body);
+        // console.log(req.body);
         const {name,email,password} = req.body;
          //check if duplicate mail exists
          const existingUser = await User.findOne({email});
@@ -40,7 +40,8 @@ const register = async (req,res) =>{
             }
         });
     } catch (error){
-        res.status(500).json({message: "server error" , error: error.message});
+        const message = error instanceof Error ? error.message:"Unknown error";
+        res.status(500).json({message: "server error" , error: message});
     };
 };
 

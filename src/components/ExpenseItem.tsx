@@ -1,8 +1,14 @@
 import { useContext } from 'react';
 import './ExpenseItem.css';
 import ExpenseContext from '../context/ExpenseContext';
-const ExpenseItem = ({ expense,deleteExpense }) => {
-    const {setEditid} = useContext(ExpenseContext);
+import { Expense } from '../types/Expenses';
+interface ExpenseItemProps{
+    expense:Expense;
+  deleteExpense: (id: string) => void;
+}
+const ExpenseItem = ({ expense,deleteExpense }:ExpenseItemProps) => {
+
+    const {setEditid} = useContext(ExpenseContext) || {};
   return (
     <div className="expense-card">
   <div className="expense-info">

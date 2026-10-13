@@ -6,18 +6,20 @@ import "../css/auth.css";
 const LoginForm = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const [error,setError] = useState("");
+    const [email,setEmail] = useState<string>("");
+    const [password,setPassword] = useState<string>("");
+    const [error,setError] = useState <string>("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try{
             await login(email,password);
             console.log("login done navigating");
             navigate("/");
         } catch(err){
-            setError("Invalid email or password");
+            const message = err instanceof Error ? err.message : "Unknown error";
+            console.log("err is",error)
+            setError(message);
         }
     };
   return (
@@ -32,14 +34,14 @@ const LoginForm = () => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         />
 
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
 
         <button type="submit">Login</button>

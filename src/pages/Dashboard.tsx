@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import ExpenseContext from '../context/ExpenseContext'
 import { getCategoryTotals } from '../utils/expenseHelpers';
 import './dashboard.css';
@@ -12,7 +12,7 @@ import {
 } from "recharts";
 
 const Dashboard = () => {
-    const {expenses,total} = useContext(ExpenseContext);
+    const {expenses,total} = useContext(ExpenseContext) || {};
     const transactionCount= expenses.length;
     const averageExpense = 
     transactionCount === 0 ? 0:(total/transactionCount).toFixed(2);
